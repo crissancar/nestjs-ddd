@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "incremental": true,
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "rootDir": "./",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "ES2022",
+    "paths": {
+      "@shared/infrastructure/shared/infrastructure/rabbitmq": [
+        "libs/shared/infrastructure/rabbitmq/src"
+      ],
+      "@shared/infrastructure/shared/infrastructure/rabbitmq/*": [
+        "libs/shared/infrastructure/rabbitmq/src/*"
+      ],
+      "@shared/modules/shared/modules": [
+        "libs/shared/modules/src"
+      ],
+      "@shared/modules/shared/modules/*": [
+        "libs/shared/modules/src/*"
+      ],
+      "@app/rabbitmq": [
+        "libs/rabbitmq/src"
+      ],
+      "@app/rabbitmq/*": [
+        "libs/rabbitmq/src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "artifacts"
+  ]
+}
