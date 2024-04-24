@@ -4,8 +4,8 @@ import { DataSource } from 'typeorm';
 import { Seeder } from 'typeorm-extension';
 
 import { Crypto } from '../../../../shared/application/services/crypto.service';
-import { ApiKeyAudiences } from '../../../src/app/modules/api-keys/enums/api-key-audiences.enum';
-import { ApiKeyEntity } from '../../../src/app/modules/api-keys/persistence/api-key.entity';
+import { ApiKeyAudiences } from '../../../src/app/modules/api-keys/domain/enums/api-key-audiences.enum';
+import { ApiKeyEntity } from '../../../src/app/modules/api-keys/infrastructure/persistence/api-key.entity';
 
 export default class ApiKeySeed implements Seeder {
 	async run(dataSource: DataSource): Promise<void> {

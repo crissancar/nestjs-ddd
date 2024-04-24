@@ -2,7 +2,7 @@ import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { Request } from 'express';
 
-import { ApiKeyAudiences } from '../../../api/src/app/modules/api-keys/enums/api-key-audiences.enum';
+import { ApiKeyAudiences } from '../../../api/src/app/modules/api-keys/domain/enums/api-key-audiences.enum';
 import { InvalidApiKeyAudienceException } from '../../domain/exceptions/invalid-api-key-audience.exception';
 import { apiKeyAudienceGuardConstants } from '../config/constants/api-key-audience-guard.constants';
 

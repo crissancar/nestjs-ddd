@@ -2,7 +2,7 @@ import { ExecutionContext, Injectable } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
 
-import { InvalidTokenException } from '../../../api/src/app/modules/auth/exceptions/invalid-token.exception';
+import { InvalidTokenException } from '../../../api/src/app/modules/auth/domain/exceptions/invalid-token.exception';
 import { UserEntity } from '../../../api/src/app/modules/users/infrastructure/persistence/user.entity';
 import { jwtGuardConstants } from '../config/constants/jwt-guard.constants';
 

@@ -1,4 +1,4 @@
-import { ApiKeyEntity } from '../../../api/src/app/modules/api-keys/persistence/api-key.entity';
+import { ApiKeyEntity } from '../../../api/src/app/modules/api-keys/infrastructure/persistence/api-key.entity';
 
 export class AuthenticatedApiKey {
 	readonly key: string;

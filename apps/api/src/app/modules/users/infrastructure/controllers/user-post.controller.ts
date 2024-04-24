@@ -4,7 +4,7 @@ import { CommandBus } from '@nestjs/cqrs';
 import { LoggerFactory } from '../../../../../../../shared/application/services/logger-factory.service';
 import { ApiKeyAuthentication } from '../../../../../../../shared/infrastructure/decorators/api-key-authentication.decorator';
 import { UuidGenerator } from '../../../../../../../shared/infrastructure/decorators/uuid-generator.decorator';
-import { ApiKeyAudiences } from '../../../api-keys/enums/api-key-audiences.enum';
+import { ApiKeyAudiences } from '../../../api-keys/domain/enums/api-key-audiences.enum';
 import { CreateUserRequest } from '../../application/dtos/create-user-request.dto';
 import { CreateUserResponse } from '../../application/dtos/create-user-response.dto';
 import { usersConfig } from '../../users.config';
