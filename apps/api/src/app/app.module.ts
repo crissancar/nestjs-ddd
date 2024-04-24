@@ -9,7 +9,6 @@ import { typeOrmConfig } from '../config/orm/typeorm.config';
 import { providersConfig } from './app.config';
 import { AppController } from './app.controller';
 import { ApiKeysModule } from './modules/api-keys/api-keys.module';
-import { AuthModule } from './modules/auth/auth.module';
 import { MessagesModule } from './modules/messages/messages.module';
 import { UsersModule } from './modules/users/users.module';
 
@@ -19,7 +18,6 @@ import { UsersModule } from './modules/users/users.module';
 		TypeOrmModule.forRoot(typeOrmConfig),
 		CqrsModule.forRoot(),
 		ApiKeysModule,
-		AuthModule,
 		UsersModule,
 		MessagesModule,
 	],

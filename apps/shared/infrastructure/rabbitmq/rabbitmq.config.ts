@@ -1,5 +1,5 @@
 export const rabbitmqConfig = {
-	uri: 'amqps://gtpxvtbs:SI4GqOE8sm7Zryv9b5xqlTcBqBXdd-92@rat.rmq2.cloudamqp.com/gtpxvtbs',
+	uri: 'amqp://guest:guest@localhost:5672',
 	users: {
 		exchange: 'users_exchange',
 		routingKey: {

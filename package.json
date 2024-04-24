@@ -10,6 +10,10 @@
   "license": "MIT",
   "scripts": {
     "build": "nest build",
+    "databases:build": "npm run api:database:build && npm run backoffice:database:build",
+    "api:database:build": "npm run api:typeorm:migration:run && npm run api:typeorm:seed:run",
+    "backoffice:database:build": "npm run backoffice:typeorm:migration:run",
+    "docker:clean": "docker-compose down --rmi local --volumes --remove-orphans",
     "deps": "npm install",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"libs/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\" --fix",

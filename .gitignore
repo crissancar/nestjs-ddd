@@ -49,6 +49,7 @@ artifacts/public/*
 artifacts/tmp/*
 artifacts/message-broker/*
 artifacts/postgres/*
+artifacts/rabbitmq/*
 
 # exception to the rule
 !artifacts/coverage/.gitkeep

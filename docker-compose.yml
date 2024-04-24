@@ -1,18 +1,31 @@
 version: '3.9'
 
 services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ./artifacts/rabbitmq/data/:/var/lib/rabbitmq/
+      - ./artifacts/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+      - nestjs-ddd-example-network
+
   postgres:
     container_name: nestjs-ddd-example-postgres
     image: "postgres:alpine"
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: 'user'
-      POSTGRES_PASSWORD: 'password'
+      POSTGRES_USER: 'admin'
+      POSTGRES_PASSWORD: 'admin'
     volumes:
-      - ../../artifacts/postgres:/var/lib/postgresql/data/
+      - ./artifacts/postgres:/var/lib/postgresql/data/
+      - ./artifacts/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - postgres
+      - nestjs-ddd-example-network
 
   pgadmin:
     container_name: nestjs-ddd-example-pgadmin
@@ -23,8 +36,7 @@ services:
     ports:
       - "5050:80"
     networks:
-      - postgres
+      - nestjs-ddd-example-network
 
 networks:
-  postgres:
-    driver: bridge
+  nestjs-ddd-example-network:
