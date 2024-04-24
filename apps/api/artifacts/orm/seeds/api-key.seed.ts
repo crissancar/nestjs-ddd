@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import { generateApiKey } from 'generate-api-key';
 import { DataSource } from 'typeorm';
 import { Seeder } from 'typeorm-extension';
 
@@ -9,15 +8,9 @@ import { ApiKeyEntity } from '../../../src/app/modules/api-keys/infrastructure/p
 
 export default class ApiKeySeed implements Seeder {
 	async run(dataSource: DataSource): Promise<void> {
-		if (process.env.NODE_ENV !== 'development') {
-			console.log(` -> It is not the development environment, skiping the Api Key seed`);
-
-			return;
-		}
-
-		const client = 'Admin';
+		const client = 'General';
 		const description = 'Seed generated key';
-		const generatedKey = generateApiKey({ method: 'base62' }) as string;
+		const generatedKey = '5cf6Q0kHQBcQHgQJouZr8z';
 		const key = Crypto.cipher(generatedKey);
 		const audience = ApiKeyAudiences.GENERAL;
 
@@ -41,11 +34,9 @@ export default class ApiKeySeed implements Seeder {
 				audience,
 			});
 
-			console.log(` -> Api Key created <${generatedKey}>`);
-
 			await entityManager.save<ApiKeyEntity>(apiKeyEntity);
 		} catch (error) {
-			console.log(' -> data already exists :)');
+			console.log(error);
 		}
 	}
 }
