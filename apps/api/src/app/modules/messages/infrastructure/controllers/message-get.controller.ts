@@ -2,6 +2,8 @@ import { Controller, Get, HttpCode, HttpStatus, Query } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
 
 import { LoggerFactory } from '../../../../../../../shared/application/services/logger-factory.service';
+import { ApiKeyAuthentication } from '../../../../../../../shared/infrastructure/decorators/api-key-authentication.decorator';
+import { ApiKeyAudiences } from '../../../api-keys/domain/enums/api-key-audiences.enum';
 import { FindMessagesByCriteriaRequest } from '../../application/dtos/find-messages-by-criteria-request.dto';
 import { FindMessagesByCriteriaResponse } from '../../application/dtos/find-messages-by-criteria-response.dto';
 import { messagesConfig } from '../../messages.config';
@@ -19,7 +21,7 @@ export class MessageGetController {
 	constructor(private readonly queryBus: QueryBus) {}
 
 	@FindMessagesByCriteriaSwagger()
-	// @ApiKeyAuthentication(ApiKeyAudiences.ADMIN, ApiKeyAudiences.GENERAL)
+	@ApiKeyAuthentication(ApiKeyAudiences.ADMIN, ApiKeyAudiences.GENERAL)
 	@HttpCode(HttpStatus.OK)
 	@Get()
 	async findByCriteria(
